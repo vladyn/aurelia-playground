@@ -13,6 +13,11 @@ describe("Info-Box", () => {
       .then(() => {
         const h1 = component.element.querySelector("h1").innerHTML;
         const pa = component.element.querySelector("p").innerHTML;
+        const audio_player = component.element.querySelector("audio-player-element");
+        Array.from(audio_player.attributes).forEach(attr => {
+          expect(attr.name).toBe("audio_src");
+          expect(attr.value).toContain("assets/audio/");
+        });
 
         expect(h1).toBe("Hello, Reader!");
         expect(pa).toBe("You are learning: <b>Testing and Debugging </b>");

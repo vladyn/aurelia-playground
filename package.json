@@ -78,7 +78,8 @@
     "start": "webpack server",
     "build:dev": "webpack",
     "analyze": "webpack --env production --analyze",
-    "test": "au test"
+    "test": "au test",
+    "test:watch": "au test --watch"
   },
   "engines": {
     "node": ">=14.15.0"
