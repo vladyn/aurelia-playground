@@ -1,5 +1,5 @@
-import {inject} from 'aurelia-dependency-injection';
-import {Project, ProjectItem, CLIOptions, UI} from 'aurelia-cli';
+import { inject } from "aurelia-dependency-injection";
+import { Project, ProjectItem, CLIOptions, UI } from "aurelia-cli";
 
 @inject(Project, CLIOptions, UI)
 export default class ElementGenerator {
@@ -12,7 +12,7 @@ export default class ElementGenerator {
   async execute() {
     const name = await this.ui.ensureAnswer(
       this.options.args[0],
-      'What would you like to call the custom element?'
+      "What would you like to call the custom element?",
     );
 
     let fileName = this.project.makeFileName(name);
@@ -20,7 +20,7 @@ export default class ElementGenerator {
 
     this.project.elements.add(
       ProjectItem.text(`${fileName}.js`, this.generateJSSource(className)),
-      ProjectItem.text(`${fileName}.html`, this.generateHTMLSource(className))
+      ProjectItem.text(`${fileName}.html`, this.generateHTMLSource(className)),
     );
 
     await this.project.commitChanges();

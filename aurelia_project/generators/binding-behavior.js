@@ -1,5 +1,5 @@
-import {inject} from 'aurelia-dependency-injection';
-import {Project, ProjectItem, CLIOptions, UI} from 'aurelia-cli';
+import { inject } from "aurelia-dependency-injection";
+import { Project, ProjectItem, CLIOptions, UI } from "aurelia-cli";
 
 @inject(Project, CLIOptions, UI)
 export default class BindingBehaviorGenerator {
@@ -12,14 +12,14 @@ export default class BindingBehaviorGenerator {
   async execute() {
     const name = await this.ui.ensureAnswer(
       this.options.args[0],
-      'What would you like to call the binding behavior?'
+      "What would you like to call the binding behavior?",
     );
 
     let fileName = this.project.makeFileName(name);
     let className = this.project.makeClassName(name);
 
     this.project.bindingBehaviors.add(
-      ProjectItem.text(`${fileName}.js`, this.generateSource(className))
+      ProjectItem.text(`${fileName}.js`, this.generateSource(className)),
     );
 
     await this.project.commitChanges();
@@ -36,6 +36,6 @@ export default class BindingBehaviorGenerator {
     //
   }
 }
-`
+`;
   }
 }

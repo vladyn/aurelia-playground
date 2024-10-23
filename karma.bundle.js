@@ -1,6 +1,6 @@
-import 'aurelia-polyfills';
-import 'aurelia-loader-webpack';
-import { install as installJasmineAsync } from 'jest-jasmine2/jasmine-async';
+import "aurelia-polyfills";
+import "aurelia-loader-webpack";
+import { install as installJasmineAsync } from "jest-jasmine2/jasmine-async";
 
 // enable running Promise-returning tests:
 installJasmineAsync(global);
@@ -15,11 +15,11 @@ runTests(testModuleContexts);
 function loadTestModules() {
   const srcContext = require.context(
     // directory:
-    './test/unit',
+    "./test/unit",
     // recursive:
     true,
     // tests in /src folder regex:
-    /\.spec\.[tj]s$/im
+    /\.spec\.[tj]s$/im,
   );
 
   return [srcContext];
